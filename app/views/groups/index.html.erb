@@ -19,10 +19,10 @@
     <tbody>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= group.teacher %></td>
-          <td><%= group.matter %></td>
-          <td><%= group.start_time %></td>
-          <td><%= group.end_time %></td>
+          <td><%= group.teacher.name %> <%= group.teacher.lastName %></td>
+          <td><%= group.matter.name %></td>
+          <td><%= group.start_time.strftime("%H:%M") %></td>
+          <td><%= group.end_time.strftime("%H:%M") %></td>
           <td><%= link_to 'Show', group %></td>
           <td><%= link_to 'Edit', edit_group_path(group) %></td>
           <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>

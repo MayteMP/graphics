@@ -1,24 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @group.teacher %>
-</p>
-
-<p>
-  <strong>Matter:</strong>
-  <%= @group.matter %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @group.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @group.end_time %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="form-w3layouts">
+  <div class="panel-heading">
+    Show Group
+  </div>
+  <%= render 'form', group: @group, pedit: false %>
+</div>

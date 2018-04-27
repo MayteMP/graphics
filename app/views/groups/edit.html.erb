@@ -1,6 +1,6 @@
-<h1>Editing Group</h1>
-
-<%= render 'form', group: @group %>
-
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+<div class="form-w3layouts">
+  <div class="panel-heading">
+    Edit Group
+  </div>
+  <%= render 'form', group: @group, pedit: true %>
+</div>

@@ -1,37 +1,70 @@
-<%= form_for(group) do |f| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<div class="panel-body">
+  <div class="position-center">
+    <%= form_for(group, html:{class: "form-horizontal"}) do |f| %>
+      <% if group.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
-      <ul>
-      <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% group.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :teacher_id %>
-    <%= f.text_field :teacher_id %>
-  </div>
+      <div class="form-group">
+        <%= f.label :teacher_id, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+          <% if pedit %>
+            <%= f.select :teacher_id, Teacher.all.map{|t| [t.name, t.id]}, {}, class: "form-control", readonly: !pedit %>
+          <% else %>
+            <%= f.text_field :teacher_id, value: group.teacher.name, class: "form-control", readonly: !pedit %>
+          <% end %>
+        </div>
 
-  <div class="field">
-    <%= f.label :matter_id %>
-    <%= f.text_field :matter_id %>
-  </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.time_select :start_time %>
-  </div>
+      <div class="form-group">
+        <%= f.label :matter_id, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+          <% if pedit %>
+            <%= f.select :matter_id, Matter.all.map{|t| [t.name, t.id]}, {}, class: "form-control", readonly: !pedit %>
+          <% else %>
+            <%= f.text_field :matter_id, value: group.matter.name, class: "form-control", readonly: !pedit %>
+          <% end %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= f.time_select :end_time %>
-  </div>
+      <div class="form-group">
+        <%= f.label :start_time, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+          <% if pedit %>
+            <%= f.time_select :start_time, class: "form-control", readonly: !pedit %>
+          <% else %>
+            <%= f.text_field :start_time, value: group.start_time.strftime('%H:%M'),  class: "form-control", readonly: !pedit %>
+          <% end %>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="form-group">
+        <%= f.label :end_time, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+          <% if pedit %>
+            <%= f.time_select :end_time, class: "form-control", readonly: !pedit %>
+          <% else %>
+            <%= f.text_field :end_time, value: group.end_time.strftime('%H:%M'),  class: "form-control", readonly: !pedit %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <% if pedit %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Edit Group", edit_group_path(group), class:"btn btn-primary" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
