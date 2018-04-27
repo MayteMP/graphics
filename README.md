@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Template [w3layouts](https://w3layouts.com/preview/?l=/visitors-admin-panel-bootstrap-responsive-web-template/)
+Ruby version [2.3.4](https://www.ruby-lang.org/en/news/2017/03/30/ruby-2-3-4-released/)
+Rails version[5.0.7](http://guides.rubyonrails.org/v5.0/)
