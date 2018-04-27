@@ -1,0 +1,29 @@
+<div class="table-agile-info">
+  <p id="notice"><%= notice %></p>
+
+  <div class="panel-heading">
+    Matters
+  </div>
+
+  <table class="table table-striped b-t b-light">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Credits</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @matters.each do |matter| %>
+        <tr>
+          <td><%= matter.name %></td>
+          <td><%= matter.credits %></td>
+          <td><%= link_to 'Show', matter %></td>
+          <td><%= link_to 'Edit', edit_matter_path(matter) %></td>
+          <td><%= link_to 'Destroy', matter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

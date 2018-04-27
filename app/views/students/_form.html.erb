@@ -1,0 +1,57 @@
+<div class="panel-body">
+  <div class="position-center">
+    <%= form_for(@student, html: {class: "form-horizontal"})  do |f| %>
+      <% if @student.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+          <ul>
+          <% student.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :name, class: "col-md-2 control-label"%>
+        <div class="col-md-10">
+          <%= f.text_field :name, class: "form-control", readonly: !pedit %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :lastName, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+            <%= f.text_field :lastName, class: "form-control", readonly: !pedit %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :age, class: "col-md-2 control-label" %>
+        <div class="col-md-10">
+          <%= f.number_field :age, class: "form-control", readonly: !pedit %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :gender, class: "col-md-2 control-label" %>
+        <div class="col-md-10" >
+          <% if pedit %>
+            <%= f.select :gender, options_for_select(["Female", "Male"]), {include_blank: true}, class: "form-control m-bot15" %>
+          <% else %>
+            <%= f.text_field :gender, class: "form-control", readonly: !pedit %>
+          <% end %>
+        </div>
+      </div>
+      <% if !pedit %>
+      <div class="actions">
+        <%= link_to "Edit Student", edit_student_path(student), class: "btn btn-primary" %>
+      </div>
+      <% else %>
+        <div class="actions">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

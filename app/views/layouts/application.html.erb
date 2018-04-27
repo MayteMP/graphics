@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gráficas</title>
+    <link rel="stylesheet" href="/jassets/css/bootstrap.min.css" >
+    <link href="/jassets/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/jassets/css/style-responsive.css" rel="stylesheet"/>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/jassets/css/font.css" type="text/css"/>
+    <link href="/jassets/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/jassets/css/morris.css" type="text/css"/>
+    <link rel="stylesheet" href="/jassets/css/monthly.css">
+    <script src="/jassets/js/jquery2.0.3.min.js"></script>
+    <script src="/jassets/js/raphael-min.js"></script>
+    <script src="/jassets/js/morris.js"></script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section id="container">
+    <header class="header fixed-top clearfix" style="top: 0px;">
+    <div class="brand">
+        <a href="/" class="logo" style="color: #fff;">
+            VISITORS
+        </a>
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars"></div>
+        </div>
+    </div>
+    <div class="top-nav clearfix">
+      <ul class="nav pull-right top-menu">
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <img alt="" src="/jassets/images/2.png">
+            <span class="username">John Doe</span>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu extended logout">
+            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </header>
+
+    <aside>
+        <div id="sidebar" class="nav-collapse" style="left: 0px">
+            <div class="leftside-navigation">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-pencil"></i>
+                            <span>Students</span>
+                        </a>
+                        <ul class="sub">
+                          <li><a href="/students">Students</a></li>
+                					<li><a href="/students/new">New Student</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Matters</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/matters">Matters</a></li>
+                            <li><a href="/new/matters">New Matter</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-user"></i>
+                            <span>Teachers</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/teachers">Teachers</a></li>
+                            <li><a href="/teachers/new">New Teacher</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-group"></i>
+                            <span>Groups</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/groups">Groups</a></li>
+                            <li><a href="/groups/new">New Group</a></li>
+                        </ul>
+                    </li>
+                  </ul>
+              </div>
+        </div>
+    </aside>
+
+    <section id="main-content">
+    	<section class="wrapper">
+            <%= yield %>
+      </section>
+    	<div class="footer">
+        <div class="wthree-copyright">
+      	   <p>© 2018 Mayté Mejía. All rights reserved</p>
+      	</div>
+    	</div>
+    </section>
+
+    <script src="/jassets/js/bootstrap.js"></script>
+    <script src="/jassets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/jassets/js/scripts.js"></script>
+    <script src="/jassets/js/jquery.slimscroll.js"></script>
+    <script src="/jassets/js/jquery.nicescroll.js"></script>
+    <script src="/jassets/js/jquery.scrollTo.js"></script>
+  </body>
+</html>

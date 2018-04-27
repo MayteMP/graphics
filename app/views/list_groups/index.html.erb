@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Group</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list_groups.each do |list_group| %>
+      <tr>
+        <td><%= list_group.student %></td>
+        <td><%= list_group.group %></td>
+        <td><%= link_to 'Show', list_group %></td>
+        <td><%= link_to 'Edit', edit_list_group_path(list_group) %></td>
+        <td><%= link_to 'Destroy', list_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New List Group', new_list_group_path %>
